@@ -1,2 +1,5 @@
 rootProject.name = 'homeworks'
+include 'kodilla-spring-intro'
+include 'kodilla-spring'
+include 'kodilla-jdbc'
 
