@@ -1,0 +1,44 @@
+CREATE TABLE ISSUESLISTS (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE ISSUES (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    ISSUELISTS_ID INT,
+    SUMMARY VARCHAR(255) NOT NULL,
+    DESCRIPTION TEXT,
+    USER_ID_ASSIGNEDTO INT,
+    FOREIGN KEY (ISSUELISTS_ID) REFERENCES ISSUELISTS(id),
+    FOREIGN KEY (USER_ID_ASSIGNEDTO) REFERENCES USERS(id)
+);
+
+INSERT INTO ISSUESLISTS (name)
+VALUES ('ToDo'),
+       ('InProgress'),
+       ('Done');
+
+INSERT INTO ISSUES (ISSUELISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES 
+(1, 'Task 1 - ToDo', 'Description for task 1 in ToDo', 1),
+(1, 'Task 2 - ToDo', 'Description for task 2 in ToDo', 2),
+(1, 'Task 3 - ToDo', 'Description for task 3 in ToDo', 3),
+(1, 'Task 4 - ToDo', 'Description for task 4 in ToDo', 1),
+(1, 'Task 5 - ToDo', 'Description for task 5 in ToDo', 2);
+
+INSERT INTO ISSUES (ISSUELISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES 
+(2, 'Task 1 - InProgress', 'Description for task 1 in InProgress', 1),
+(2, 'Task 2 - InProgress', 'Description for task 2 in InProgress', 2),
+(2, 'Task 3 - InProgress', 'Description for task 3 in InProgress', 3),
+(2, 'Task 4 - InProgress', 'Description for task 4 in InProgress', 1),
+(2, 'Task 5 - InProgress', 'Description for task 5 in InProgress', 2);
+
+INSERT INTO ISSUES (ISSUELISTS_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES 
+(3, 'Task 1 - Done', 'Description for task 1 in Done', 1),
+(3, 'Task 2 - Done', 'Description for task 2 in Done', 2),
+(3, 'Task 3 - Done', 'Description for task 3 in Done', 3),
+(3, 'Task 4 - Done', 'Description for task 4 in Done', 1),
+(3, 'Task 5 - Done', 'Description for task 5 in Done', 2);
+
